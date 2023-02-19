@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using MyAPI.MyJWT.Contracts;
+using MyAPI.MyJWT.Repositories;
 using MyPersistence;
+using MyPersistence.Contracts;
+using MyPersistence.Repositories;
 using System.Text;
 
 namespace MyAPI.Extensions
@@ -47,5 +51,11 @@ namespace MyAPI.Extensions
 
             services.AddDbContext<MyDbContext>(opt => opt.UseOracle(connectionString));
         }
+
+        public static void AddJWTRepo(this IServiceCollection services)
+            => services.AddSingleton<IJWTManagerRepository, JWTManagerRepository>();
+
+        public static void AddRepositories(this IServiceCollection services)
+            => services.AddScoped<IUserServiceRepository, UserServiceRepository>();
     }
 }

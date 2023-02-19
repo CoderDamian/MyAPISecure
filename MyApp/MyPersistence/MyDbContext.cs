@@ -13,6 +13,7 @@ namespace MyPersistence
 
         }
 
+        public DbSet<User> Users { get; set; }
         public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -28,6 +29,7 @@ namespace MyPersistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserRefreshTokeMap());
+            modelBuilder.ApplyConfiguration(new UserMap());
         }
     }
 }
