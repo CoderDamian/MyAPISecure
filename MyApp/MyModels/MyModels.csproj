@@ -6,12 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="oracle.entityframeworkcore" Version="7.21.9" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\MyModels\MyModels.csproj" />
-  </ItemGroup>
-
 </Project>
